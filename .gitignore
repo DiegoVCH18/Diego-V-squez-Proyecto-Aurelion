@@ -1,0 +1,39 @@
+# Ignorar archivos y carpetas generados por Python y VS Code
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.log
+*.env
+.env/
+venv/
+ENV/
+.envrc
+
+# Ignorar archivos temporales y de sistema
+.DS_Store
+Thumbs.db
+
+# Ignorar archivos de Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Ignorar exportaciones y datos simulados
+export/
+datasets/*.xlsx
+logs/
+
+# Ignorar archivos de configuración de VS Code
+.vscode/
+
+# Ignorar archivos de Copilot y GitHub
+.github/
+
+# Ignorar archivos de pruebas y resultados
+*.csv
+# *.json  # Comentado para permitir config.json
+
+# Opcional: ignora archivos de backup
+*~
+*.bak

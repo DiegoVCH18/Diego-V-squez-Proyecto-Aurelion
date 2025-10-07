@@ -1,0 +1,87 @@
+==============================================================
+README – PROYECTO MINIMARKET AURELION
+Fundamentos en Inteligencia Artificial – IBM / Guayerd
+Sprint 1 – Clase 5
+==============================================================
+
+Autor: Diego Vásquez
+Proyecto: Minimarket Aurelion
+Fecha de entrega: Octubre 2025
+--------------------------------------------------------------
+
+📘 DESCRIPCIÓN GENERAL
+El proyecto "Minimarket Aurelion" analiza datos de ventas minoristas 
+para identificar productos estrella, estacionalidad y segmentación ABC 
+de clientes y artículos. 
+Este Sprint 1 tiene como objetivo construir el pipeline base, 
+documentar su funcionamiento y generar datasets simulados coherentes.
+
+--------------------------------------------------------------
+📂 ESTRUCTURA DE CARPETAS
+
+Diego Vásquez - Proyecto Aurelion/
+│
+├── 1. Documentación.md          → Describe el problema, datasets y flujo del pipeline
+├── 2. programa.py               → Script principal: muestra información general del proyecto
+├── 3. Instrucciones.md          → Lineamientos para agentes IA y reglas del proyecto
+├── 4. simulador_datos_comerciales.py → Generador de datasets con validaciones
+├── 5. config.json               → Configuración centralizada de rutas y volúmenes
+├── 6. README.txt                → Este archivo con información general del proyecto
+│
+├── datasets/                    → Carpeta con datos generados (.xlsx)
+│   ├── clientes.xlsx
+│   ├── productos.xlsx
+│   ├── ventas.xlsx
+│   └── detalle_ventas.xlsx
+├── logs/                        → Carpeta de registros automáticos (pipeline_YYYYMMDD.log)
+├── docs/                        → Documentación extendida (resumen_mensual.md, etc.)
+└── export/                      → Resultados exportados (out_top5.csv, etc.)
+
+--------------------------------------------------------------
+⚙️ INSTRUCCIONES DE USO
+
+1️⃣ Abrir el proyecto en Visual Studio Code.
+2️⃣ Ejecutar el script de simulación (solo una vez):
+      python "4. simulador_datos_comerciales.py"
+   → Genera los archivos base en la carpeta "datasets/". Este paso se realiza una única vez para crear los datasets simulados con las recomendaciones de Copilot. No es necesario repetirlo salvo que requieras regenerar los datos.
+
+3️⃣ Ejecutar el programa principal:
+      python "2. programa.py"
+   → Muestra información general del proyecto y verifica estructura.
+
+4️⃣ (Opcional) Ejecutar:
+   (La columna "canal" ahora se asigna automáticamente en el pipeline de simulación; no es necesario ejecutar un script adicional.)
+
+5️⃣ Revisar logs en la carpeta "logs/" para confirmar ejecución exitosa.
+
+--------------------------------------------------------------
+📈 ARCHIVOS CLAVE
+
+- 1. Documentación.md → Describe el problema, datasets y flujo del pipeline
+- 2. programa.py      → Script principal que muestra la estructura general
+- 3. Instrucciones.md → Contiene lineamientos para agentes IA y reglas del proyecto
+- 4. simulador_datos_comerciales.py → Generador de datasets con validaciones
+- 5. config.json      → Archivo de configuración con rutas y volúmenes de datos
+- 6. README.txt       → Este archivo con información general del proyecto
+
+--------------------------------------------------------------
+💡 NOTAS
+
+✔ Este entregable cumple los requerimientos de la Clase 5:
+   - 1. Documentación.md con tema, problema, datasets y diagrama.
+   - 3. Instrucciones.md con lineamientos de uso de Copilot.
+   - 2. programa.py con información del proyecto.
+   - Migración del programa al directorio principal.
+   - Aplicación de mejoras sugeridas por Copilot.
+
+✔ Todos los scripts se ejecutan sin necesidad de modificar rutas.
+
+--------------------------------------------------------------
+✉ CONTACTO
+
+Mentor: Mirta Gladys Julio
+Nombre: Diego Armando Vásquez Chávez
+Correo: dvasquezc@certus.edu.pe
+LinkedIn: https://www.linkedin.com/in/diego-armando-vasquez/
+
+==============================================================

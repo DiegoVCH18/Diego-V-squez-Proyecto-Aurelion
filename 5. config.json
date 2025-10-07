@@ -1,0 +1,15 @@
+{
+  "rutas": {
+    "productos": "Datasets/productos.xlsx",
+    "clientes": "Datasets/clientes.xlsx",
+    "ventas": "Datasets/ventas.xlsx",
+    "detalle_ventas": "Datasets/detalle_ventas.xlsx",
+    "logs": "logs/"
+  },
+  "tamaños": {
+    "productos": 125,
+    "clientes": 1000,
+    "ventas": 10000,
+    "detalle_ventas": 10000
+  }
+}
