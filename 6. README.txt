@@ -40,14 +40,22 @@ Diego Vásquez - Proyecto Aurelion/
 --------------------------------------------------------------
 ⚙️ INSTRUCCIONES DE USO
 
-1️⃣ Abrir el proyecto en Visual Studio Code.
-2️⃣ Ejecutar el script de simulación (solo una vez):
+🌐 EJECUCIÓN DESDE GITHUB (Recomendado):
+1️⃣ Ve al repositorio: https://github.com/DiegoVCH18/Diego-V-squez-Proyecto-Aurelion
+2️⃣ Haz clic en "Code" > "Codespaces" > "Create codespace on main"
+3️⃣ En la terminal del codespace, ejecuta:
       python "4. simulador_datos_comerciales.py"
-   → Genera los archivos base en la carpeta "datasets/". Este paso se realiza una única vez para crear los datasets simulados con las recomendaciones de Copilot. No es necesario repetirlo salvo que requieras regenerar los datos.
-
-3️⃣ Ejecutar el programa principal:
       python "2. programa.py"
-   → Muestra información general del proyecto y verifica estructura.
+
+💻 EJECUCIÓN LOCAL:
+1️⃣ Clona el repositorio: git clone https://github.com/DiegoVCH18/Diego-V-squez-Proyecto-Aurelion.git
+2️⃣ Abre el proyecto en Visual Studio Code
+3️⃣ Ejecutar el script de simulación (solo una vez):
+      python "4. simulador_datos_comerciales.py"
+   → Genera los archivos base en la carpeta "datasets/"
+4️⃣ Ejecutar el programa principal:
+      python "2. programa.py"
+   → Muestra información general del proyecto y verifica estructura
 
 4️⃣ (Opcional) Ejecutar:
    (La columna "canal" ahora se asigna automáticamente en el pipeline de simulación; no es necesario ejecutar un script adicional.)
