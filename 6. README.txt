@@ -1,95 +1,106 @@
-==============================================================
-README – PROYECTO MINIMARKET AURELION
-Fundamentos en Inteligencia Artificial – IBM / Guayerd
-Sprint 1 – Clase 5
-==============================================================
+# 🏪 Minimarket Aurelion – README PRO
 
-Autor: Diego Vásquez
-Proyecto: Minimarket Aurelion
-Fecha de entrega: Octubre 2025
---------------------------------------------------------------
+Proyecto de análisis de ventas minoristas con pipeline de simulación, limpieza, EDA y generación automática de reportes.
 
-📘 DESCRIPCIÓN GENERAL
-El proyecto "Minimarket Aurelion" analiza datos de ventas minoristas 
-para identificar productos estrella, estacionalidad y segmentación ABC 
-de clientes y artículos. 
-Este Sprint 1 tiene como objetivo construir el pipeline base, 
-documentar su funcionamiento y generar datasets simulados coherentes.
+- Autor: Diego Armando Vásquez Chávez  
+- Curso: Fundamentos en IA – IBM & Guayerd  
+- Versión: 2.1 (1 nov 2025)
 
---------------------------------------------------------------
-📂 ESTRUCTURA DE CARPETAS
+---
 
-Diego Vásquez - Proyecto Aurelion/
-│
-├── 1. Documentación.md          → Describe el problema, datasets y flujo del pipeline
-├── 2. programa.py               → Script principal: muestra información general del proyecto
-├── 3. Instrucciones.md          → Lineamientos para agentes IA y reglas del proyecto
-├── 4. simulador_datos_comerciales.py → Generador de datasets con validaciones
-├── 5. config.json               → Configuración centralizada de rutas y volúmenes
-├── 6. README.txt                → Este archivo con información general del proyecto
-│
-├── datasets/                    → Carpeta con datos generados (.xlsx)
-│   ├── clientes.xlsx
-│   ├── productos.xlsx
-│   ├── ventas.xlsx
-│   └── detalle_ventas.xlsx
-├── logs/                        → Carpeta de registros automáticos (pipeline_YYYYMMDD.log)
-├── docs/                        → Documentación extendida (resumen_mensual.md, etc.)
-└── export/                      → Resultados exportados (out_top5.csv, etc.)
+## 📘 Introducción
 
---------------------------------------------------------------
-⚙️ INSTRUCCIONES DE USO
+El objetivo del proyecto es identificar productos estrella, estacionalidad y segmentación ABC de clientes y artículos. El pipeline integra, limpia y analiza datos provenientes de archivos (Excel/CSV/JSON), y exporta métricas, visualizaciones y resúmenes ejecutivos.
 
-🌐 EJECUCIÓN DESDE GITHUB (Recomendado):
-1️⃣ Ve al repositorio: https://github.com/DiegoVCH18/Diego-V-squez-Proyecto-Aurelion
-2️⃣ Haz clic en "Code" > "Codespaces" > "Create codespace on main"
-3️⃣ En la terminal del codespace, ejecuta:
-      python "4. simulador_datos_comerciales.py"
-      python "2. programa.py"
+Puntos destacados:
+- Distribución de medios de pago preservada por muestreo estratificado en la simulación.
+- Limpieza con validaciones de integridad (claves, FKs, fechas, precios) y derivación de reglas de negocio (canal por medio de pago).
+- EDA con KPIs (ticket promedio, top 5, correlaciones) y clasificación ABC (productos y clientes).
+- Logging estructurado (JSONL) y métricas de ejecución por etapa.
 
-💻 EJECUCIÓN LOCAL:
-1️⃣ Clona el repositorio: git clone https://github.com/DiegoVCH18/Diego-V-squez-Proyecto-Aurelion.git
-2️⃣ Abre el proyecto en Visual Studio Code
-3️⃣ Ejecutar el script de simulación (solo una vez):
-      python "4. simulador_datos_comerciales.py"
-   → Genera los archivos base en la carpeta "datasets/"
-4️⃣ Ejecutar el programa principal:
-      python "2. programa.py"
-   → Muestra información general del proyecto y verifica estructura
+---
 
-4️⃣ (Opcional) Ejecutar:
-   (La columna "canal" ahora se asigna automáticamente en el pipeline de simulación; no es necesario ejecutar un script adicional.)
+## 🏗️ Arquitectura
 
-5️⃣ Revisar logs en la carpeta "logs/" para confirmar ejecución exitosa.
+Componentes principales del repo:
 
---------------------------------------------------------------
-📈 ARCHIVOS CLAVE
+- Notebooks
+   - `4. simulador_datos_comerciales.ipynb` → Genera datasets simulados.
+   - `7. Limpieza_datos.ipynb` → Integra y limpia datos; exporta `*_clean.xlsx`.
+   - `8. EDA_Aurelion.ipynb` → EDA y visualizaciones; genera CSV y PNG.
+- Scripts
+   - `2. programa.py` → Orquestador del pipeline (limpieza, KPIs, export, logs y métricas).
+   - `regenerar_pipeline.py` → Verificación rápida y ejecución no interactiva del flujo.
+- Paquete utilitario `aurelion/`
+   - `pipeline_utils.py` → Config/rutas, lectura autodetectada (Excel/CSV/JSON), validaciones, limpieza, integración y métricas.
+   - `logging_utils.py` → Logging estructurado (consola, errors.log.jsonl, metrics.log.jsonl).
+   - `visualization_utils.py` → `generar_visualizacion()` (histograma/boxplot/heatmap/pareto).
+   - `eda_analyzer.py` → Clase `EDAAnalyzer` (KPIs, outliers, ABC, reportes CSV).
+- Datos y salidas
+   - `datasets/` y `datasets_limpios/`
+   - `export/` (CSV/JSON/txt), `visualizaciones_EDA/` (PNG), `logs/` (JSONL) y `docs/` (Markdown).
+- Configuración
+   - `5. config.json` → Rutas, parámetros y umbrales de validación.
 
-- 1. Documentación.md → Describe el problema, datasets y flujo del pipeline
-- 2. programa.py      → Script principal que muestra la estructura general
-- 3. Instrucciones.md → Contiene lineamientos para agentes IA y reglas del proyecto
-- 4. simulador_datos_comerciales.py → Generador de datasets con validaciones
-- 5. config.json      → Archivo de configuración con rutas y volúmenes de datos
-- 6. README.txt       → Este archivo con información general del proyecto
+---
 
---------------------------------------------------------------
-💡 NOTAS
+## ▶️ Ejecución
 
-✔ Este entregable cumple los requerimientos de la Clase 5:
-   - 1. Documentación.md con tema, problema, datasets y diagrama.
-   - 3. Instrucciones.md con lineamientos de uso de Copilot.
-   - 2. programa.py con información del proyecto.
-   - Migración del programa al directorio principal.
-   - Aplicación de mejoras sugeridas por Copilot.
+Requisitos: Python 3.10+ y paquetes: pandas, numpy, matplotlib, seaborn, openpyxl.
 
-✔ Todos los scripts se ejecutan sin necesidad de modificar rutas.
+- Flujo recomendado (terminal de VS Code o Codespaces – PowerShell):
 
---------------------------------------------------------------
-✉ CONTACTO
+```powershell
+# 1) (Opcional) Generar datos simulados
+python "4. simulador_datos_comerciales.py"
 
-Mentor: Mirta Gladys Julio
-Nombre: Diego Armando Vásquez Chávez
-Correo: dvasquezc@certus.edu.pe
-LinkedIn: https://www.linkedin.com/in/diego-armando-vasquez/
+# 2) Ejecutar el pipeline (menú interactivo)
+python "2. programa.py"
 
-==============================================================
+# 3) (Alternativa no interactiva)
+python regenerar_pipeline.py
+
+# 4) EDA manual
+# Abrir y ejecutar: 8. EDA_Aurelion.ipynb
+```
+
+Notas:
+- Rutas de archivos en `5. config.json`. La lectura autodetecta formato por extensión (xlsx/csv/json).
+- Los resultados quedan en `export/`, imágenes en `visualizaciones_EDA/` y logs en `logs/`.
+
+---
+
+## 📊 Resultados
+
+- Exportaciones (ejemplos):
+   - `export/distribucion_medio_pago_ventas.csv`
+   - `export/top5_productos.csv`
+   - `export/correlaciones.csv`
+   - `export/clasificacion_abc_productos.csv`, `export/clasificacion_abc_clientes.csv`
+   - `export/outliers_detectados.csv`, `export/outliers_importe_total_iqr.csv`
+   - `docs/resumen_mensual.md` (si se genera desde el pipeline)
+- Visualizaciones: `visualizaciones_EDA/*.png` (barras, heatmap, Pareto, etc.).
+- Logs y métricas:
+   - `logs/aurelion_pipeline_*.log.jsonl` (eventos del pipeline)
+   - `logs/errors.log.jsonl` (errores críticos)
+   - `logs/metrics.log.jsonl` (tiempos por etapa y resumen final)
+
+---
+
+## 🚀 Próximos pasos
+
+- Procesamiento por chunks (streaming) end-to-end para CSV/NDJSON grandes.
+- Test suite (smoke + unitarios) para utils clave (validaciones y lectura autodetectada).
+- Dashboards interactivos (Streamlit/Plotly) con KPIs y filtros.
+- Validaciones extendidas: reglas por categoría de producto y umbrales diferenciales.
+
+---
+
+## 🔗 Enlaces rápidos (notebooks y scripts)
+
+- Simulación de datos: [`4. simulador_datos_comerciales.ipynb`](./4.%20simulador_datos_comerciales.ipynb)  
+- Limpieza de datos: [`7. Limpieza_datos.ipynb`](./7.%20Limpieza_datos.ipynb)  
+- EDA: [`8. EDA_Aurelion.ipynb`](./8.%20EDA_Aurelion.ipynb)  
+- Pipeline principal: [`2. programa.py`](./2.%20programa.py)  
+- Verificación fin a fin: [`regenerar_pipeline.py`](./regenerar_pipeline.py)  
+- Utilitarios (paquete): [`aurelion/`](./aurelion/)
